@@ -1,0 +1,85 @@
+#%RAML 1.0
+title: CDI-24-finalproject 
+baseUri: http://localhost:8081/api
+mediaType: 
+- application/json
+types:
+  Employee: !include DataType/Employee.raml 
+  Custom Error: !include /DataType/CustomErrorType.raml 
+  Error: !include DataType/500errordatatype.raml
+/Employees:
+  get:
+    headers:
+      Accept?:   
+    responses:
+      200:
+        headers:
+          Cache-Control:
+          Expires:
+           type: datetime      
+        body:
+          type: Employee[]
+      404:
+        body:
+          type: Custom Error
+  post:
+    body:
+    responses:
+      201:
+        headers:
+          locations: 
+        body:
+          type: Employee
+      500:
+          body:
+           type: Error                   
+  /{Employee-id}:
+    get:
+      responses:
+        200:
+          body:
+            type: Employee
+        404:
+          body:
+            type: Custom Error
+    put:
+      body:
+      responses:
+        200:
+          body:
+            type: Employee
+        500:
+          body:
+            type: Error
+
+    delete:
+      responses:
+        200:
+          body:
+            type: Employee
+        404:
+            body:
+              type: Custom Error
+            
+            
+  
+
+
+
+                    
+            
+                  
+            
+                
+        
+    
+
+    
+            
+      
+
+                    
+          
+      
+                        
+          
