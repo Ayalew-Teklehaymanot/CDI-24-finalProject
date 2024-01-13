@@ -1,0 +1,4 @@
+content: |
+  This **Employee Management Portal API** allows developers to build applications that make use of the information from resource  methods implemented in the API.
+
+  This API contains functionality that enables developers to retrieve _all employees_ or filter individual _employees_ information by _employeeID_. Click  [here]() for more details.
