@@ -1,0 +1,41 @@
+#%RAML 1.0
+title: Employee Management Portal
+mediaType: 
+- application/json
+types:
+  Employee: !include DataType/EmployeedataType.raml
+  Employee_id: !include DataType/EmployeedataType_id.raml
+
+/Employees:
+  get:  
+    responses:
+      200:  
+        body:
+          type: Employee_id []
+  post:
+    body:
+      type: Employee with_out_id
+    responses:
+      201:
+        headers:
+          locations: 
+        body:
+          type: Employee with_id                 
+  /{Employee-id}:
+    get:
+      responses:
+        200:
+          body:
+            type: Employee_with_out_id
+    put:
+      body:
+        type: Employee_with_out_id
+      responses:
+        204:
+          body:
+            type: Employee_with_id
+    delete:
+      responses:
+        200:
+          body:
+            type: Employee_without_id

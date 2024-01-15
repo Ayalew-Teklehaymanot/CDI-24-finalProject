@@ -1,0 +1,4 @@
+value:
+  firstName: "Bob"
+  lastName: "Bradley"
+  department: "Accounting"
